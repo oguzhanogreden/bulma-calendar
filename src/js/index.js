@@ -267,12 +267,12 @@ export default class bulmaCalendar extends EventEmitter {
    *                                                  *
    ****************************************************/
   onSelectDateTimePicker(e) {
+    this.refresh();
+    this.save();
     if (e.type === 'select' && this.options.closeOnSelect === true  && this.options.displayMode !== 'inline') {
-      this.refresh();
-      this.save();
       this.hide();
-      this.emit(e.type, this);
     }
+    this.emit(e.type, this);
   }
 
   onDocumentClickDateTimePicker(e) {
